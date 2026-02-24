@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Obriši aktivnost</h2>
+
+<p>Jeste li sigurni da želite obrisati "{{ object.naziv }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Obriši</button>
+</form>
+{% endblock %}

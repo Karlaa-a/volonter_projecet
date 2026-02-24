@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Detalji aktivnosti{% endblock %}
+
+{% block content %}
+<h1>{{ object.naziv_aktivnosti }}</h1>
+
+<p><strong>Opis:</strong> {{ object.opis }}</p>
+<p><strong>Kategorija:</strong> {{ object.kategorija }}</p>
+<p><strong>Datum:</strong> {{ object.datum }}</p>
+{% endblock %}

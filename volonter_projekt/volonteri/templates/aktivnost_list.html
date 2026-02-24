@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Aktivnosti{% endblock %}
+
+{% block content %}
+<h1>Volonterske aktivnosti</h1>
+
+{% if user.is_authenticated %}
+<p> <a href="{% url 'volonteri:aktivnost_nova' %}">
+        Dodaj novu aktivnost </a> </p> {% endif %}
+<ul>
+    {% for aktivnost in object_list %}
+    <li>
+        <a href="{% url 'volonteri:aktivnost_detalji' aktivnost.pk %}">
+            {{ aktivnost.naziv_aktivnosti }}
+        </a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'volonteri:aktivnost_uredi' aktivnost.pk %}">Uredi</a>
+        <a href="{% url 'volonteri:aktivnost_obrisi' aktivnost.pk %}">Obriši</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

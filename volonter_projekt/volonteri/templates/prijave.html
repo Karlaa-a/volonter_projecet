@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Prijave{% endblock %}
+
+{% block content %}
+<h1>Prijave</h1>
+
+<ul>
+    {% for prijava in object_list %}
+        <li>
+            <a href="{% url 'volonteri:prijava_detalji' prijava.pk %}">
+                {{ prijava.ime }} {{ prijava.prezime }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Detalji prijave{% endblock %}
+
+{% block content %}
+<h1>{{ object.ime }} {{ object.prezime }}</h1>
+
+<p><strong>Aktivnost:</strong> {{ object.aktivnost.naziv_aktivnosti }}</p>
+<p><strong>Datum prijave:</strong> {{ object.datum_prijave }}</p>
+{% endblock %}

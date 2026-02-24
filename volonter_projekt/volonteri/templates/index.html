@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Početna{% endblock %}
+
+{% block content %}
+    <h1>Dobrodošli u Volonter Projekt {{ user.username }}</h1>
+
+    {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}">Prijava</a><br><br>
+        <a href="{% url 'volonteri:register' %}">Registracija</a>
+    {% else %}
+        <p>Odaberite jednu od naših aktivnosti!</p>
+    {% endif %}
+{% endblock %}

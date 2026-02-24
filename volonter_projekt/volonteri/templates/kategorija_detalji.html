@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Detalji kategorije{% endblock %}
+
+{% block content %}
+<h1>{{ object.naziv }}</h1>
+
+<h3>Aktivnosti u ovoj kategoriji:</h3>
+<ul>
+    {% for aktivnost in object.aktivnost_set.all %}
+        <li>{{ aktivnost.naziv_aktivnosti }}</li>
+    {% empty %}
+        <li>Nema aktivnosti u ovoj kategoriji.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

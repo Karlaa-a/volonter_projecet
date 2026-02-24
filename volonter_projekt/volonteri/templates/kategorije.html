@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Kategorije{% endblock %}
+
+{% block content %}
+<h1>Kategorije</h1>
+
+<ul>
+    {% for kategorija in object_list %}
+        <li>
+            <a href="{% url 'volonteri:kategorija_detalji' kategorija.pk %}">
+                {{ kategorija.naziv }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="hr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Volonteri{% endblock %}</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="{% url 'volonteri:index' %}">Početna</a> |
+        <a href="{% url 'volonteri:aktivnost_list' %}">Aktivnosti</a> |
+        <a href="{% url 'volonteri:kategorije' %}">Kategorije</a> |
+        <a href="{% url 'volonteri:prijave' %}">Popis volontera</a> |
+        {% if user.is_authenticated %}
+        <span>Prijavljeni ste kao {{ user.username }}</span>
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+
+        {% else %}
+        <a href="{% url 'login' %}">Login</a> |
+        <a href="{% url 'volonteri:register' %}">Registracija</a>
+        {% endif %}
+    </nav>
+
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+
+</html>
